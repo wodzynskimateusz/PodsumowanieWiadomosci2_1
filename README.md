@@ -1,0 +1,1 @@
+PodsumowanieWiadomosci2
