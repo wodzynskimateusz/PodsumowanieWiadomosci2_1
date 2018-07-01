@@ -4,12 +4,8 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public class Zad1 {
-    public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println("Podaj PESEL");
-        String pesel = sc.nextLine();
+    public int oblicz(String pesel) {
 
         int rokUrodzenia = 1900 + Integer.parseInt(pesel.substring(0, 2));
         int miesiacUrodzenia = Integer.parseInt(pesel.substring(2, 4));
@@ -32,27 +28,27 @@ public class Zad1 {
                 31, 30, 31, 30, 31};
 
         // ZLICZAM DNI W ROKU OBECNYM I ROKU URODZENIA
-             // rok urodzenia - do końca roku
+        // rok urodzenia - do końca roku
         for (int miesiac = miesiacUrodzenia + 1; miesiac <= 12; miesiac++) {
             counter += (miesiac == 2 && isLeap(rokUrodzenia)) ?
                     dlugoscMiesiaca[miesiac] + 1 :
                     dlugoscMiesiaca[miesiac];
         }
-            // rok obecny - od początku roku
+
+        // rok obecny - od początku roku
         for (int miesiac = 1; miesiac < miesiacObecnie; miesiac++) {
             counter += (miesiac == 2 && isLeap(rokObecnie)) ?
                     dlugoscMiesiaca[miesiac] + 1 :
                     dlugoscMiesiaca[miesiac];
         }
-            // dni w obecnym miesiacu
+
+        // dni w obecnym miesiacu
         counter += dzienObecnie;
 
-            // dni w miesiacu urodzenia
+        // dni w miesiacu urodzenia
         counter += dlugoscMiesiaca[miesiacUrodzenia] - dzienUrodzenia;
 
-        System.out.println("Jesteś na tym świecie już " + counter + " dni.");
-        System.out.println(counter + " modulo 2 to: " + counter%2 + ".");
-
+        return counter;
     }
 
     public static boolean isLeap(int year) {
