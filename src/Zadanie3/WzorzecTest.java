@@ -1,6 +1,6 @@
 package Zadanie3;
 
-public class TEST {
+public class WzorzecTest {
     public static void main(String[] args) {
 
         Gazeciarz gazeciarz = new Gazeciarz();
